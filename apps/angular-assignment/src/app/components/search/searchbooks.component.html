@@ -1,0 +1,14 @@
+<div>
+  <div class="search_field">
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="search for a book"
+        (keyup)="searchInputChange($event.target.value)"
+      />
+    </mat-form-field>
+  </div>
+  <div>
+    <pkglobal-books [books]="books" [type]="'search'"></pkglobal-books>
+  </div>
+</div>

@@ -1,1 +1,116 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+  margin: 8px;
+}
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-rows: 11vh 1fr;
+  grid-template-columns: 3fr 20fr;
+}
+.header {
+  grid-column: 1 / 4;
+  grid-row: 1/1;
+}
+.content {
+  grid-column: 2 / 4;
+  grid-row: 2 / 5;
+}
+.sidebar {
+  grid-row: 2 / 5;
+  grid-column: 1;
+}
+.mat-list-base .mat-list-item {
+  color: black;
+}
+
+.mat-toolbar {
+  background-color: red;
+}
+
+.mat-card {
+  background-color: white !important;
+  color: black;
+}
+
+.search_field {
+  margin-left: 125px;
+}
+
+.form_card {
+  margin-top: 67px;
+  width: 60%;
+}
+
+.books_card {
+  margin-top: 80px;
+  width: 78%;
+  height: 255px;
+}
+
+.bookDetails_page {
+  display: grid;
+  place-items: center;
+}
+
+.book_title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.book_desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.user_details {
+  display: grid;
+}
+
+.proceedToBuy_Btn {
+  right: 61px;
+  position: absolute;
+  z-index: 1;
+  top: 70px;
+}
+
+.delete_book {
+  right: 0px;
+  position: absolute;
+  z-index: 1;
+  bottom: 84px;
+}
+.mycart_page {
+  margin-top: 60px;
+}
+.field_width {
+  width: 100%;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -51,7 +51,7 @@
               "apps/angular-assignment/src/favicon.ico",
               "apps/angular-assignment/src/assets"
             ],
-            "styles": ["apps/angular-assignment/src/styles.css"],
+            "styles": ["./node_modules/@angular/material/prebuilt-themes/indigo-pink.css", "apps/angular-assignment/src/styles.css"],
             "scripts": []
           },
           "configurations": {

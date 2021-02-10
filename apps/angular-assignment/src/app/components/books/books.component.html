@@ -1,0 +1,43 @@
+<mat-grid-list cols="2" rowHeight="200px">
+  <mat-grid-tile *ngFor="let book of books; trackBy: trackByMethod">
+    <mat-card class="books_card">
+      <mat-card-header>
+        <mat-card-title
+          ><span class="book_title">{{
+            book?.volumeInfo["title"]
+          }}</span></mat-card-title
+        >
+        <mat-card-subtitle>{{ book?.id || "2334" }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="book_desc">
+          <strong>Description</strong> :
+          {{ book?.volumeInfo["description"] || book?.volumeInfo["title"] }}
+        </p>
+        <p class="book_title">
+          <strong> Written By</strong> :
+          {{ book?.volumeInfo["authors"] || book?.volumeInfo["title"] }}
+        </p>
+        <p class="delete_book" *ngIf="isDelete == true">
+          <button
+            mat-icon-button
+            (click)="deleteCartItem(book)"
+            color="warn"
+            aria-label="Example icon button with a vertical three dot icon"
+          >
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+        </p>
+        <button
+          mat-raised-button
+          color="warn"
+          *ngIf="type == 'search'"
+          [routerLink]="['/book', book.id]"
+          (click)="viewBook(book)"
+        >
+          View
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

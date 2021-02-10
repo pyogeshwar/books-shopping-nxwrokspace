@@ -1,0 +1,40 @@
+<div class="bookDetails_page">
+  <mat-card class="form_card">
+    <mat-card-header>
+      <mat-card-title
+        ><span class="book_title">{{
+          book?.volumeInfo["title"]
+        }}</span></mat-card-title
+      >
+      <mat-card-subtitle>{{ book?.id || "2334" }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="book_desc">
+        <strong>Description</strong> :
+        {{ book?.volumeInfo["description"] || book?.volumeInfo["title"] }}
+      </p>
+      <p class="book_title">
+        <strong> Written By</strong> :
+        {{ book?.volumeInfo["authors"] || book?.volumeInfo["title"] }}
+      </p>
+      <p>
+        <strong> Published Data</strong> :
+        {{ book?.volumeInfo["publishedData"] || book?.id }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="addBookToCart(book)">
+        Add to cart
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="byNow(book)"
+        routerLinkActive="active"
+        routerLink="/billing"
+      >
+        By Now
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -2,6 +2,10 @@ module.exports = {
   displayName: 'angular-assignment',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+  collectCoverage: true,
+  coverageReporters: [
+      "html"
+  ],
   globals: {
     'ts-jest': {
       tsConfig: '<rootDir>/tsconfig.spec.json',

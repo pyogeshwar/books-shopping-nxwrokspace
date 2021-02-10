@@ -1,0 +1,65 @@
+<div class="billing_page bookDetails_page" novalidate>
+  <mat-card class="form_card">
+    <mat-card-header>
+      <mat-card-title>Billing Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form
+        class="user_form"
+        [formGroup]="userForm"
+        (ngSubmit)="onSubmit(userForm.value)"
+      >
+        <mat-form-field class="field_width">
+          <mat-label>Your Name</mat-label>
+          <input matInput formControlName="name" />
+          <mat-error
+            *ngIf="
+              !userForm.controls['name'].valid &&
+              userForm.controls['name'].touched
+            "
+          >
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field_width">
+          <mat-label>Your EmailID</mat-label>
+          <input matInput formControlName="email" />
+          <mat-error
+            *ngIf="
+              !userForm.controls['email'].valid &&
+              userForm.controls['email'].touched
+            "
+          >
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="field_width">
+          <mat-label>Telephone</mat-label>
+          <span matPrefix>+1 &nbsp;</span>
+          <input matInput formControlName="phone" />
+          <mat-error
+            *ngIf="
+              !userForm.controls['phone'].valid &&
+              userForm.controls['phone'].touched
+            "
+          >
+          </mat-error>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="field_width">
+          <mat-label>Address</mat-label>
+          <textarea matInput formControlName="address"></textarea>
+          <mat-error
+            *ngIf="
+              !userForm.controls['address'].valid &&
+              userForm.controls['address'].touched
+            "
+          >
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="warn" [disabled]="!userForm.valid">
+          Submit Form
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
