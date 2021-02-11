@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { Book, BookDetails } from '../book.model';
 import { user } from '../user';
 
@@ -30,16 +30,14 @@ export class DataService {
     return this.http.get<Book>(this.BASE_URL + '?q=' + id);
   }
   getBook(id: string): Observable<BookDetails> {
-    return this.http
-      .get(this.BASE_URL + '/' + id + '?key=' + this.googleKey)
-      .pipe(
-        map((data) => {
-          return data;
-        })
-      );
+    return this.http.get(this.BASE_URL + '/' + id + '?key=' + this.googleKey);
   }
+
   setBookData(res): void {
     this.bookData.next(res);
+  }
+  setUserDetails(userObj): void {
+    this.userData.next(userObj);
   }
   updateCart(book): void {
     this.array$.pipe(take(1)).subscribe((val) => {
@@ -70,8 +68,5 @@ export class DataService {
   }
   getDataFromLocalStorage(): unknown {
     return JSON.parse(localStorage.getItem('cartItems'));
-  }
-  setUserDetails(userObj): void {
-    this.userData.next(userObj);
   }
 }
