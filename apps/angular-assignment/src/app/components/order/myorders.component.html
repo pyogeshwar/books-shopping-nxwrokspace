@@ -8,7 +8,7 @@
         <tr>
           <th>Book(s): {{ books?.length }}</th>
         </tr>
-        <tr *ngFor="let book of books; let i = index;">
+        <tr *ngFor="let book of books; let i = index;; trackBy: trackByMethod">
           <td><strong>Title:</strong></td>
           <td>{{ book?.volumeInfo['title'] }}</td>
         </tr>

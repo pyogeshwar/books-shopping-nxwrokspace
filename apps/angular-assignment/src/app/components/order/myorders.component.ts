@@ -22,5 +22,7 @@ export class MyOrdersComponent implements OnInit {
       this.user = data;
     });
   }
-  
+  trackByMethod(el): string {
+    return el['id'];
+  }
 }

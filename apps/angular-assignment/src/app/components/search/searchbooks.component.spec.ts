@@ -6,6 +6,7 @@ import { DataService } from '../../services/data.service';
 import { BooksComponent } from '../books/books.component';
 
 import { SearchBooksComponent } from './searchbooks.component';
+import { of } from 'rxjs';
 
 describe('BooksComponent', () => {
   let component: SearchBooksComponent;
@@ -32,6 +33,14 @@ describe('BooksComponent', () => {
 
     it('should call filterBooks and return list of books', fakeAsync(() => {
       expect(component.dataService.filterBooks).toHaveBeenCalledWith('');
+    }));
+
+    it('should return the book items', fakeAsync((books) => {
+      component.dataService.filterBooks = () => of(books);
+      component.searchInputChange('');
+      component.dataService.filterBooks('').subscribe((res) => {
+        expect(res).toEqual(books);
+      });
     }));
   });
 });

@@ -9,7 +9,6 @@ import { DataService } from '../../services/data.service';
 describe('MyOrdersComponent', () => {
   let component: MyOrdersComponent;
   let fixture: ComponentFixture<MyOrdersComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientModule, MaterialModule],
@@ -23,11 +22,9 @@ describe('MyOrdersComponent', () => {
   });
 
   describe('when caling getUserData', () => {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     beforeEach(async () => {
       spyOn(component.dataService, 'userData').and.returnValue({
-        // eslint-disable-next-line @typescript-eslint/no-empty-function
-        subscribe: () => {},
+        subscribe: () => ({}),
       });
       component.getUserData();
     });
@@ -45,8 +42,8 @@ describe('MyOrdersComponent', () => {
 
   describe('when calling trackByMethod', () => {
     it('should return the book id', () => {
-      const id = 1;
-      expect(id).toEqual(1);
+      const obj = { id: 1 };
+      expect(component.trackByMethod(obj)).toEqual(1);
     });
   });
 });
